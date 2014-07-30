@@ -1,0 +1,22 @@
+{
+  "name": "startup-wrapper",
+  "version": "0.1.0",
+  "description": "A service for starting locally installed applications.",
+  "main": "server/app.js",
+  "dependencies": {
+    "npm": "~1.2.14",
+    "http": "0.0.0",
+    "node-uuid": "~1.4.1",
+    "express": "~4.7.2",
+    "request": "~2.39.0"
+  },
+  "devDependencies": {
+    "supervisor": "~0.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Martin Hecher <martin.hecher@fraunhofer.at>",
+  "license": "MIT"
+}
