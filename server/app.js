@@ -41,8 +41,8 @@ app.get('/applications', function(req, res) {
     })
 });
 
-// var host = 'http://localhost:9000';
-var host = 'http://bw-dssv18.bwk.tue.nl:9000'
+var host = 'http://localhost:9000';
+// var host = 'http://bw-dssv18.bwk.tue.nl:9000'
 
 app.put('/applications/:id', function(req, res) {
     var urlparse = require('url');
@@ -94,6 +94,8 @@ app.put('/applications/:id', function(req, res) {
         file_stream.on('close', function() {
             console.log('Finished download of: ' + target1);
 
+            res.status(200).send('Download finished');
+
             // file0 = path.join(appRoot, '..', 'apps', 'Software_Prototype_D441_D551-E57', 'ExampleE57', 'Rislokka_subsampled_small_5x5.e57');
             // file1 = path.join(appRoot, '..', 'apps', 'Software_Prototype_D441_D551-E57', 'ExampleE57', 'Rislokka_subsampled_small_10x10.e57');
 
@@ -116,22 +118,22 @@ app.put('/applications/:id', function(req, res) {
                 console.log('ERROR: ' + data);
             });
 
-            executable.on('close', function(code) {
-                console.log('CLOSE, exit code: ' + code);
-                if (code === 0) {
-                    res.json({
-                        app: [{
-                            status: 'Finished'
-                        }]
-                    })
-                } else {
-                    res.json({
-                        app: [{
-                            status: 'Error'
-                        }]
-                    })
-                }
-            });
+            // executable.on('close', function(code) {
+            //     console.log('CLOSE, exit code: ' + code);
+            //     if (code === 0) {
+            //         res.json({
+            //             app: [{
+            //                 status: 'Finished'
+            //             }]
+            //         })
+            //     } else {
+            //         res.json({
+            //             app: [{
+            //                 status: 'Error'
+            //             }]
+            //         })
+            //     }
+            // });
         });
     });
 });
